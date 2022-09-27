@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <style>
+            [data-color="red"] { color: red; }
+            [data-color="blue"] { color: blue; }
+            [data-color="green"] { color: green; }
+            [data-color="orange"] { color: orange; }
+            [data-color="purple"] { color: purple; }
+        </style>
+        <script>
+            window.myHandler = () => {
+                console.log("Click!");
+            };
+
+            window.getRandomNumber = (max) => {
+                return Math.floor(Math.random() * max);
+            };
+
+            const colors = ["red", "blue", "green", "orange", "purple"];
+            window.changeHeadlineColor = (croHeadline) => {
+                const colorIndex = window.getRandomNumber(colors.length);
+                const newColor = colors[colorIndex];
+                const newTimeoutMillis = window.getRandomNumber(5000);
+
+                setTimeout(() => {
+                    croHeadline.setAttribute("data-color", newColor);
+                    window.changeHeadlineColor(croHeadline);
+                }, newTimeoutMillis);
+            };
+        </script>
+        <script>
+            window.myEventHandler = () => {
+                console.log("I worked as a SoftWare Engineer for 8 years. From Ichiro Daichi :)")
+            };
+        </script>
+    </head>
+    <body>
+        <div id="myDiv">OMG Click me!</div>
+        <script>
+            const myDiv = document.querySelector("#myDiv");
+            myDiv.addEventListener("click", window.myHandler);
+            myDiv.addEventListener("click", window.myEventHandler);
+
+            const newTimeoutMillis = window.getRandomNumber(5000);
+            setTimeout(() => {
+                myDiv.insertAdjacentHTML("beforebegin", `<h1 id="cro-headline" data-color="red">Cro Metrics</h1>`);
+
+                const croHeadline = document.querySelector("#cro-headline");
+                window.changeHeadlineColor(croHeadline);
+            }, newTimeoutMillis);
+        </script>
+    </body>
+</html>

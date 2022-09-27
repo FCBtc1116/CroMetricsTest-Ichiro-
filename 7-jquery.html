@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+
+	<div class="foo">
+		<div id="bar">For Hire</div>
+	</div>
+
+	<script>
+		$(document).ready(() => {
+			var element = $(".foo #bar");
+			element.css({
+				'color': 'red',
+				'border': '1px solid blue'
+			});
+			element.text("new text!");
+			element.click(function() {
+				$(this).attr("title", "new title");
+				$(this).width("100px");
+			});
+
+			element.click();
+		});
+	</script>
+</body>
+</html>

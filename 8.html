@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+
+	<div class="foo">
+		<div id="bar">For Hire</div>
+	</div>
+
+	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			String.prototype.prefix = function(anotherStr) {
+				return anotherStr + this;
+			}
+			console.log("bc".prefix("a") === "abc");
+		});
+	</script>
+</body>
+</html>

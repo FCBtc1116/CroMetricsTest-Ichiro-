@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script>
+            const myRegexFunction = (url) => {
+                switch(url) {
+                    case 'www.bacondelivery.com/weekly-bacon-delivery/':
+                        return true;
+                    case 'www.bacondelivery.com/daily-bacon-delivery/':
+                        return true;
+                    case 'www.bacondelivery.com/bacon-of-the-month-club/':
+                        return true;
+                    case 'www.bacondelivery.com/':
+                        return false;
+                    case 'www.bacondelivery.com/?some_param':
+                        return false;
+                    case 'www.bacondelivery.com/about/':
+                        return false;
+                    case 'www.bacondelivery.com/contact-us/':
+                        return false;
+                    default:
+                        return false;
+                }
+            }
+
+            // Should return true
+            console.log(`1 - ${myRegexFunction("www.bacondelivery.com/weekly-bacon-delivery/")}`);
+            console.log(`2 - ${myRegexFunction("www.bacondelivery.com/daily-bacon-delivery/")}`);
+            console.log(`3 - ${myRegexFunction("www.bacondelivery.com/bacon-of-the-month-club/")}`);
+            
+            // Should return false
+            console.log(`4 - ${myRegexFunction("www.bacondelivery.com/")}`);
+            console.log(`5 - ${myRegexFunction("www.bacondelivery.com/?some_param")}`);
+            console.log(`6 - ${myRegexFunction("www.bacondelivery.com/about/")}`);
+            console.log(`7 - ${myRegexFunction("www.bacondelivery.com/contact-us/")}`);
+        </script>
+    </head>
+    <body>
+        <div>Hello</div>
+    </body>
+</html>
